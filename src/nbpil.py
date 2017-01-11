@@ -22,10 +22,6 @@ __version__ = '2.0 all'
 __version_string__ = 'Toolbox adpil V2.0 8Jan2017'
 
 #
-
-#
-
-#
 # =====================================================================
 #
 #   Global statements for adread
