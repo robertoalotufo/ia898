@@ -6,20 +6,20 @@
     by PIL) and displaying of images represented as numpy arrays. The layout
     of these numpy arrays follows the rules of the adimage toolbox images.
     -------------------------------------------------------------------
-    adimages()    -- List image files located on sys.imagepath, if this variable
+    nbimages()    -- List image files located on sys.imagepath, if this variable
                      exists, or, otherwise, on sys.path
-    adread()      -- Read an image from a file to a numpy array.
-    adshow()      -- Display an image
-    adwrite()     -- Write an image from a numpy array to an image file. The
+    nbread()      -- Read an image from a file to a numpy array.
+    nbshow()      -- Display an image
+    nbwrite()     -- Write an image from a numpy array to an image file. The
                      format is deduced from the filename extension.
     array2pil()   -- Convert a numpy array to a PIL image
     pil2array()   -- Convert a PIL image to a numpy array
 
 """
 #
-__version__ = '2.0 all'
+__version__ = '0.8 all'
 
-__version_string__ = 'Toolbox adpil V2.0 8Jan2017'
+__version_string__ = 'Toolbox nbpil V0.8 8Jan2017'
 
 #
 # =====================================================================
@@ -166,7 +166,7 @@ from cStringIO import StringIO
 import IPython.display
 import numpy as np
 from PIL import Image
-def nbshow(a, title=None, fmt='png', width=None):
+def nbshow_old(a, title=None, fmt='png', width=None):
     if a.dtype == bool:
         a = np.uint8(a) * 255
     elif a.dtype != np.uint8:
@@ -181,6 +181,65 @@ def nbshow(a, title=None, fmt='png', width=None):
         IPython.display.display(IPython.display.Image(data=f.getvalue()))
     if title:
         print(title)
+
+from cStringIO import StringIO
+from IPython.display import display, Image, HTML
+import base64
+import numpy as np
+import PIL
+
+class nbshow:
+    #constructor
+    def __init__(self, ncols = 3,width = [], fmt = 'png'):
+        self.imgs = []
+        self.titles = []
+        self.ncols = ncols
+        self.width = []   
+        self.fmt = fmt
+        return
+    #sets figure size. Ex figsize = (12,8)
+    def set_figsize(self,figsize):
+        self.figsize = figsize
+        return
+    #sets image width
+    def set_width(self,width):
+        self.width = width
+        return    
+    #displays image in subplot format 
+    #append images to list of images to be displayed
+    def nbshow(self,img=None,title = ""):
+        if img is not None:
+            self.imgs.append(img)
+            self.titles.append(title)
+        else: 
+            number_of_subplots = len(self.imgs)
+            imagesList = "<head><style>\
+                table, th, td { border: 0px solid black;\
+                text-align: center;border-collapse: collapse;}</style></head>\
+                <body><table border=\"0\">"
+            for i,(img,title) in enumerate(zip(self.imgs,self.titles)): 
+                if i%self.ncols == 0:
+                    imagesList += "<tr>"
+                if img.dtype == bool:
+                    img = np.uint8(img) * 255
+                elif img.dtype != np.uint8:
+                    raise ValueError('Accept only bool ou uint8 image. It was %s' % img.dtype) 
+                f = StringIO()
+                fi = PIL.Image.fromarray(img)
+                fi.save(f, self.fmt)
+                imgbuffer = f.getvalue()
+                img_b64 = base64.b64encode(imgbuffer)
+                imagesList +="<td>\
+                    <table><tr><td><img src='data:image/png;base64,%s'/></td></tr>\
+                    <tr><td align='center'>%s</td></tr></table></td>" % (img_b64,title)
+                if i%self.ncols == (self.ncols-1):
+                    imagesList += "<tr>"
+            imagesList +="</tr></table></body>"
+            # empties buffer
+            self.imgs = []
+            self.titles = []
+            #print 'imagelist:',imagesList
+            display(HTML(imagesList))
 
 #
 # =====================================================================
