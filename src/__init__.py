@@ -8,4 +8,6 @@ from ia898.src.normalize import normalize
 from ia898.src.histogram import histogram, histogram_eq, histogram_eq1
 from ia898.src.h2percentile import h2percentile
 from ia898.src.h2stats import h2stats
+from ia898.src.applylut import applylut
+from ia898.src.colormap import colormap
 
