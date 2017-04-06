@@ -10,4 +10,6 @@ from ia898.src.h2percentile import h2percentile
 from ia898.src.h2stats import h2stats
 from ia898.src.applylut import applylut
 from ia898.src.colormap import colormap
+from ia898.src.affine import affine
+
 
