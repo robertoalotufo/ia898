@@ -12,5 +12,6 @@ from ia898.src.applylut import applylut
 from ia898.src.colormap import colormap
 from ia898.src.conv import conv
 from ia898.src.affine import affine
+from ia898.src.ptrans import ptrans
 
 
