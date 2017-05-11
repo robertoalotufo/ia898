@@ -15,5 +15,10 @@ from ia898.src.affine import affine
 from ia898.src.ptrans import ptrans, ptrans2, ptrans2d
 from ia898.src.pconv import pconv
 from ia898.src.dftmatrix import dftmatrix
+from ia898.src.dftshift import dftshift
+from ia898.src.dftview import dftview
+from ia898.src.dft import dft
+
+
 
 
