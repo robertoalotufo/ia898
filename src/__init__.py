@@ -18,6 +18,7 @@ from ia898.src.dftmatrix import dftmatrix
 from ia898.src.dftshift import dftshift
 from ia898.src.dftview import dftview
 from ia898.src.dft import dft
+from ia898.src.comb import comb
 
 
 
