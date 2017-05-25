@@ -20,6 +20,9 @@ from ia898.src.dftview import dftview
 from ia898.src.dft import dft
 from ia898.src.comb import comb
 from ia898.src.isccsym import isccsym,isccsym2
+from ia898.src.polar import polar
+from ia898.src.interpollin import interpollin
+from ia898.src.phasecorr import phasecorr
 
 
 
