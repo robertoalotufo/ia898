@@ -84,7 +84,7 @@ def nbread(imagefile):
             im_arr = im_arr.reshape((image.size[1], image.size[0]))
         elif image.mode == 'RGB':
             im_arr = im_arr.reshape((image.size[1], image.size[0], 3))
-        elif image.mode == '1'
+        elif image.mode == '1':
             print('does not support bit mode')
             return None
         else:
