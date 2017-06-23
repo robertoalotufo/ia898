@@ -13,7 +13,7 @@ Collection of general image processing functions written in Python with a collec
     - jupyter and jupyter extentions
 
 ## Lessons
-    - [chess](https://github.com/robertoalotufo/ia898/blob/master/master/chess.ipynb) - Illustrate the many ways to create an image of a chess like template
+    - [chess](master/chess.ipynb) - Illustrate the many ways to create an image of a chess like template
     - iauint8pitfalls- Common errors processing uint8 data
     - iagenimages - Illustrate the generation of different images
     - iaprofiledemo - Illustrate the extraction and plotting of a profile
