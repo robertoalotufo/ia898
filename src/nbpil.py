@@ -130,8 +130,19 @@ def nbwrite(imagefile, f):
             f:         The numpy array to save.
 
     """
-    fi = PIL.Image.fromarray(f)
-    fi.save(imagefile)
+    s = f.shape
+    if len(s) == 3:
+        s0,s1,s2 = s
+        if s0 == 3:
+            f = f.transpose((1,2,0))
+        fi = PIL.Image.fromarray(f)
+        fi.save(imagefile)
+    else:
+        # gray scale image
+        if f.dtype == 'bool':
+            f = (f * 255).astype('uint8')
+        fi = PIL.Image.fromarray(f,mode='L')
+        fi.save(imagefile)    
     return
 #
 # =====================================================================
