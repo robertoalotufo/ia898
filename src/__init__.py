@@ -26,6 +26,7 @@ from ia898.src.ihadamard import ihadamard
 from ia898.src.isolines import isolines
 from ia898.src.log import log
 from ia898.src.logfilter import logfilter
+from ia898.src.mosaic import mosaic
 from ia898.src.nbpil import adshow, show, nbshow, nbread, nbreadgray, nbwrite
 from ia898.src.normalize import normalize
 from ia898.src.histogram import histogram, histogram_eq, histogram_eq1
@@ -35,6 +36,8 @@ from ia898.src.ptrans import ptrans, ptrans2, ptrans2d
 from ia898.src.pconv import pconv
 from ia898.src.isccsym import isccsym,isccsym2
 from ia898.src.polar import polar
+from ia898.src.ramp import ramp
+from ia898.src.rectangle import rectangle
 from ia898.src.interpollin import interpollin
 from ia898.src.phasecorr import phasecorr
 
