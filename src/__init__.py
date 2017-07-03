@@ -18,6 +18,7 @@ from ia898.src.dftshift import dftshift
 from ia898.src.dftview import dftview
 from ia898.src.ellipse import ellipse
 from ia898.src.gaussian import gaussian
+from ia898.src.gshow import gshow
 from ia898.src.haarmatrix import haarmatrix
 from ia898.src.hadamardmatrix import hadamardmatrix
 from ia898.src.hadamard import hadamard
