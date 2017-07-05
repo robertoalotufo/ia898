@@ -224,13 +224,16 @@ class nbshow:
         if (img is None) or flush: 
             number_of_subplots = len(self.imgs)
             imagesList = "<head><style>                table, th, td { border: 0px solid black;                text-align: center;border-collapse: collapse;}</style></head>                <body><table border=\"0\">"
-            for i,(img,title) in enumerate(zip(self.imgs,self.titles)): 
+            for i,(img,title) in enumerate(zip(self.imgs,self.titles)):
                 if i%self.ncols == 0:
                     imagesList += "<tr>"
                 if img.dtype == bool:
                     img = np.uint8(img) * 255
                 elif img.dtype != np.uint8:
-                    raise ValueError('Accept only bool ou uint8 image. It was %s with title:%s' % (img.dtype,title)) 
+                    # Removing this image/title make it possible to not having to recreate the object again
+                    del self.imgs[i]
+                    del self.titles[i]
+                    raise ValueError('Accept only bool ou uint8 image. It was %s with title:%s' % (img.dtype,title))
                 #f = StringIO()
                 f = BytesIO()
                 # Verify format if (3,H,W), change to (H,W,3)
