@@ -11,8 +11,8 @@ from ia898.src.conv import conv
 from ia898.src.comb import comb
 from ia898.src.cos import cos
 from ia898.src.circle import circle
-from ia898.src.dct import dct
 from ia898.src.dctmatrix import dctmatrix
+from ia898.src.dct import dct
 from ia898.src.dft import dft
 from ia898.src.dftmatrix import dftmatrix
 from ia898.src.dftshift import dftshift
