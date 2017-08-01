@@ -3,11 +3,12 @@ Conjunto de funções utilizadas no curso IA898 - Processamento Digital de Image
 
 Criado primeira vez no curso do 1º semestre 2017
 
-## Description
-Collection of general image processing functions written in Python with a collection of lessons used in the IA636 course (Visao Computacional) taught at University of Campinas, Brazil.
+## Instalação
 
-### Dependencies:
-    To run the functions is this repo please install the following:
+- faça o clone do repositório
+- abra o jupyter e execute o notebook ia898/src/GenerateLibrary
+
+## Dependência:
     - numpy
     - matplotlib
     - jupyter and jupyter extentions
